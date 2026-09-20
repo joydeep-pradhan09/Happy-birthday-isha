@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Page Just For You</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--cream:#fbf7f3;
+--paper:#fffdfb;
+--rose:#b78383;
+--rose-dark:#8f6265;
+--ink:#3d3434;
+--muted:#8d7d7d;
+--gold:#b99a70;
+--line:rgba(100,75,75,.14);
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+background:
+radial-gradient(circle at 15% 15%,rgba(183,131,131,.14),transparent 28%),
+radial-gradient(circle at 85% 80%,rgba(185,154,112,.12),transparent 30%),
+var(--cream);
+color:var(--ink);
+font-family:"DM Sans",sans-serif;
+}
+
+.page{
+width:min(1050px,92%);
+margin:auto;
+padding:30px 0 80px;
+}
+
+.back{
+display:inline-block;
+color:var(--muted);
+text-decoration:none;
+font-size:11px;
+letter-spacing:.15em;
+margin-bottom:70px;
+}
+
+.hero{
+text-align:center;
+margin-bottom:70px;
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:.3em;
+color:var(--rose-dark);
+margin-bottom:15px;
+}
+
+h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(65px,11vw,120px);
+font-weight:500;
+line-height:.8;
+}
+
+.hero p{
+max-width:570px;
+margin:30px auto;
+color:var(--muted);
+font-size:14px;
+line-height:1.9;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:1fr 1.3fr 1fr;
+gap:18px;
+align-items:center;
+}
+
+.image-card{
+background:var(--paper);
+padding:10px;
+border:1px solid var(--line);
+border-radius:25px;
+box-shadow:0 20px 60px rgba(70,45,45,.07);
+}
+
+.image-card:nth-child(2){
+transform:translateY(-35px);
+}
+
+.image-card img{
+width:100%;
+height:450px;
+object-fit:cover;
+display:block;
+border-radius:18px;
+}
+
+.note{
+max-width:680px;
+margin:70px auto 0;
+background:rgba(255,253,251,.75);
+border:1px solid var(--line);
+border-radius:28px;
+padding:50px 40px;
+text-align:center;
+box-shadow:0 20px 60px rgba(70,45,45,.06);
+}
+
+.note h2{
+font-family:"Cormorant Garamond",serif;
+font-size:45px;
+font-weight:500;
+}
+
+.note p{
+margin-top:18px;
+font-size:13px;
+line-height:2;
+color:var(--muted);
+}
+
+.signature{
+font-family:"Parisienne",cursive;
+font-size:30px;
+color:var(--rose-dark);
+margin-top:25px;
+}
+
+.page-nav{
+display:flex;
+justify-content:space-between;
+border-top:1px solid var(--line);
+padding-top:25px;
+margin-top:70px;
+}
+
+.page-nav a{
+text-decoration:none;
+color:var(--rose-dark);
+font-size:11px;
+letter-spacing:.12em;
+}
+
+footer{
+text-align:center;
+padding:30px;
+font-size:9px;
+letter-spacing:.2em;
+color:var(--muted);
+}
+
+@media(max-width:800px){
+.gallery{
+grid-template-columns:1fr;
+max-width:550px;
+margin:auto;
+}
+
+.image-card:nth-child(2){
+transform:none;
+}
+
+.image-card img{
+height:500px;
+}
+
+.note{
+padding:40px 25px;
+}
+}
+
+@media(max-width:500px){
+h1{font-size:70px}
+.image-card img{height:400px}
+.note h2{font-size:38px}
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<a href="index.html" class="back">← BACK HOME</a>
+
+<header class="hero">
+<div class="eyebrow">PAGE 05 · JUST FOR YOU</div>
+
+<h1>A Page<br>Just For You</h1>
+
+<p>
+No list to finish.
+No countdown to watch.
+Just one small page to say that your birthday
+deserves a little space of its own.
+</p>
+</header>
+
+
+<section class="gallery">
+
+<div class="image-card">
+<img src="images/placeholder.svg" data-image="eye"
+alt="Close-up portrait with the eyes in focus">
+</div>
+
+<div class="image-card">
+<img src="images/placeholder.svg" data-image="red-outfit"
+alt="Three-photo fashion collage in a red outfit">
+</div>
+
+<div class="image-card">
+<img src="images/placeholder.svg" data-image="red-closeup"
+alt="Close-up portrait in a red outfit">
+</div>
+
+</section>
+
+
+<section class="note">
+
+<h2>Keep being you.</h2>
+
+<p>
+I hope this next year gives you plenty of reasons to laugh,
+new places to discover, people who make ordinary days better,
+and enough unexpected moments to become good stories later.
+</p>
+
+<p>
+And when another birthday arrives,
+I hope there are even more memories worth putting into a page like this.
+</p>
+
+<div class="signature">— Joy</div>
+
+</section>
+
+
+<nav class="page-nav">
+<a href="things-remind-me.html">← PREVIOUS</a>
+<a href="final-surprise.html">NEXT →</a>
+</nav>
+
+</main>
+
+<footer>PAGE 05 · MADE FOR ISHA</footer>
+
+<script src="image-fix.js"></script>
+<script src="image-loader.js"></script>
+</body>
+</html>

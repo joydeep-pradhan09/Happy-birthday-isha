@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Isha — Birthday Edition</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --cream:#fbf7f3;
+    --paper:#fffdfb;
+    --rose:#b78383;
+    --rose-dark:#8f6265;
+    --ink:#3d3434;
+    --muted:#8d7d7d;
+    --gold:#b99a70;
+    --line:rgba(100,75,75,.14);
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--ink);
+    font-family:"DM Sans",sans-serif;
+    background:
+        radial-gradient(circle at 15% 15%,rgba(183,131,131,.14),transparent 28%),
+        radial-gradient(circle at 85% 75%,rgba(185,154,112,.12),transparent 30%),
+        var(--cream);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    z-index:20;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+.cursor-glow{
+    position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:rgba(183,131,131,.09);
+    filter:blur(55px);
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:1;
+}
+
+.petal{
+    position:fixed;
+    top:-30px;
+    z-index:10;
+    pointer-events:none;
+    color:var(--rose);
+    opacity:.45;
+    animation:fall linear forwards;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:70px 20px;
+    text-align:center;
+}
+
+.hero-inner{
+    width:min(900px,100%);
+    position:relative;
+    z-index:2;
+}
+
+.date{
+    letter-spacing:.28em;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:34px;
+}
+
+.kicker{
+    font-family:"Parisienne",cursive;
+    font-size:35px;
+    color:var(--rose-dark);
+    margin-bottom:5px;
+}
+
+h1{
+    font-family:"Cormorant Garamond",serif;
+    font-weight:500;
+    font-size:clamp(75px,13vw,150px);
+    line-height:.78;
+    letter-spacing:-.04em;
+}
+
+.subtitle{
+    max-width:580px;
+    margin:35px auto 0;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.9;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:45px auto 25px;
+    max-width:420px;
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:.25em;
+}
+
+.divider::before,
+.divider::after{
+    content:"";
+    height:1px;
+    flex:1;
+    background:var(--line);
+}
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:25px;
+}
+
+.time{
+    width:75px;
+    padding:15px 8px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.48);
+    border-radius:16px;
+    backdrop-filter:blur(10px);
+}
+
+.time strong{
+    display:block;
+    font-family:"Cormorant Garamond",serif;
+    font-size:34px;
+    font-weight:500;
+}
+
+.time span{
+    font-size:8px;
+    letter-spacing:.16em;
+    color:var(--muted);
+}
+
+.count-note{
+    margin-top:18px;
+    font-size:11px;
+    color:var(--muted);
+}
+
+.section{
+    width:min(1100px,92%);
+    margin:0 auto;
+    padding:80px 0;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.eyebrow{
+    color:var(--rose-dark);
+    letter-spacing:.25em;
+    font-size:10px;
+    margin-bottom:10px;
+}
+
+.section h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:56px;
+    font-weight:500;
+}
+
+.section-head p{
+    color:var(--muted);
+    margin-top:10px;
+    font-size:13px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card{
+    position:relative;
+    min-height:245px;
+    padding:28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    text-decoration:none;
+    color:var(--ink);
+    background:rgba(255,253,251,.72);
+    border:1px solid var(--line);
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s ease;
+    box-shadow:0 15px 45px rgba(80,50,50,.04);
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(183,131,131,.08);
+    top:-55px;
+    right:-45px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(143,98,101,.3);
+    box-shadow:0 25px 60px rgba(80,50,50,.1);
+}
+
+.card:hover::before{
+    transform:scale(1.5);
+}
+
+.card-number{
+    position:absolute;
+    top:25px;
+    left:27px;
+    font-size:10px;
+    color:var(--gold);
+    letter-spacing:.15em;
+}
+
+.card h3{
+    position:relative;
+    font-family:"Cormorant Garamond",serif;
+    font-size:30px;
+    font-weight:500;
+}
+
+.card p{
+    position:relative;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.6;
+    margin-top:8px;
+}
+
+.card-arrow{
+    position:absolute;
+    top:23px;
+    right:25px;
+    font-size:20px;
+    color:var(--rose-dark);
+}
+
+.quote{
+    width:min(760px,90%);
+    margin:70px auto 100px;
+    text-align:center;
+}
+
+.quote p{
+    font-family:"Cormorant Garamond",serif;
+    font-size:34px;
+    line-height:1.35;
+}
+
+.quote span{
+    display:block;
+    margin-top:20px;
+    font-family:"Parisienne",cursive;
+    color:var(--rose-dark);
+    font-size:27px;
+}
+
+footer{
+    padding:30px 20px 45px;
+    text-align:center;
+    font-size:9px;
+    letter-spacing:.2em;
+    color:var(--muted);
+}
+
+@media(max-width:800px){
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:560px){
+    .hero{
+        min-height:90vh;
+    }
+
+    .date{
+        margin-bottom:25px;
+    }
+
+    .kicker{
+        font-size:29px;
+    }
+
+    h1{
+        font-size:82px;
+    }
+
+    .subtitle{
+        font-size:13px;
+        padding:0 10px;
+    }
+
+    .countdown{
+        gap:6px;
+    }
+
+    .time{
+        width:68px;
+        padding:12px 5px;
+    }
+
+    .time strong{
+        font-size:28px;
+    }
+
+    .section{
+        padding:55px 0;
+    }
+
+    .section h2{
+        font-size:43px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        min-height:210px;
+    }
+
+    .quote p{
+        font-size:28px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cursor-glow" id="glow"></div>
+
+<main>
+
+<section class="hero">
+<div class="hero-inner">
+
+<div class="date">20 · 09 · 2026</div>
+
+<div class="kicker">For Isha</div>
+
+<h1>is here.</h1>
+
+<p class="subtitle">
+A small corner of the internet for your birthday —
+made from memories, details, and all the little things
+that make you, you.
+</p>
+
+<div class="divider">
+<span>THE BIRTHDAY EDITION</span>
+</div>
+
+<div class="countdown">
+<div class="time">
+<strong id="days">00</strong>
+<span>DAYS</span>
+</div>
+
+<div class="time">
+<strong id="hours">00</strong>
+<span>HOURS</span>
+</div>
+
+<div class="time">
+<strong id="minutes">00</strong>
+<span>MINUTES</span>
+</div>
+
+<div class="time">
+<strong id="seconds">00</strong>
+<span>SECONDS</span>
+</div>
+</div>
+
+<p class="count-note" id="countNote">
+20 September 2026 · your day
+</p>
+
+</div>
+</section>
+
+
+<section class="section">
+
+<div class="section-head">
+<div class="eyebrow">A FEW PAGES FOR YOU</div>
+<h2>Take your time.</h2>
+<p>There are seven little places to explore.</p>
+</div>
+
+<div class="cards">
+
+<a href="little-things.html" class="card">
+<span class="card-number">01</span>
+<h3>The Little Things I Notice</h3>
+<p>Six little details, three pairs, one page.</p>
+<span class="card-arrow">↗</span>
+</a>
+
+<a href="hundred-things.html" class="card">
+<span class="card-number">02</span>
+<h3>100 Little Things About You</h3>
+<p>A hundred small observations worth keeping.</p>
+<span class="card-arrow">↗</span>
+</a>
+
+<a href="birthday-story.html" class="card">
+<span class="card-number">03</span>
+<h3>The Story So Far</h3>
+<p>A few memories arranged like little chapters.</p>
+<span class="card-arrow">↗</span>
+</a>
+
+<a href="things-remind-me.html" class="card">
+<span class="card-number">04</span>
+<h3>Things That Remind Me Of You</h3>
+<p>Colours, places, details and familiar little things.</p>
+<span class="card-arrow">↗</span>
+</a>
+
+<a href="just-for-you.html" class="card">
+<span class="card-number">05</span>
+<h3>A Page Just For You</h3>
+<p>Because one page needed to be completely yours.</p>
+<span class="card-arrow">↗</span>
+</a>
+
+<a href="final-surprise.html" class="card">
+<span class="card-number">06</span>
+<h3>One Last Surprise</h3>
+<p>There is one more thing waiting at the end.</p>
+<span class="card-arrow">↗</span>
+</a>
+
+</div>
+</section>
+
+
+<div class="quote">
+<p>
+“Some birthdays are a date.
+Some become a collection of little memories.”
+</p>
+<span>— Joy</span>
+</div>
+
+</main>
+
+<footer>
+MADE FOR ISHA · 20.09.2026
+</footer>
+
+<script>
+const birthday = new Date("2026-09-20T00:00:00+05:30").getTime();
+
+function updateCountdown(){
+
+    const now = Date.now();
+    let difference = birthday - now;
+
+    if(difference <= 0){
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        document.getElementById("countNote").textContent = "Happy Birthday, Isha ✦";
+        return;
+    }
+
+    const days = Math.floor(difference / (1000*60*60*24));
+    difference %= (1000*60*60*24);
+
+    const hours = Math.floor(difference / (1000*60*60));
+    difference %= (1000*60*60);
+
+    const minutes = Math.floor(difference / (1000*60));
+    difference %= (1000*60);
+
+    const seconds = Math.floor(difference / 1000);
+
+    document.getElementById("days").textContent = String(days).padStart(2,"0");
+    document.getElementById("hours").textContent = String(hours).padStart(2,"0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2,"0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2,"0");
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+
+document.addEventListener("mousemove",e=>{
+    const glow=document.getElementById("glow");
+    glow.style.left=e.clientX+"px";
+    glow.style.top=e.clientY+"px";
+});
+
+
+const symbols=["✦","❀","✧","·"];
+
+function createPetal(){
+
+    const petal=document.createElement("div");
+
+    petal.className="petal";
+    petal.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+
+    petal.style.left=Math.random()*100+"vw";
+    petal.style.fontSize=(8+Math.random()*10)+"px";
+    petal.style.animationDuration=(7+Math.random()*8)+"s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(()=>petal.remove(),16000);
+}
+
+setInterval(createPetal,650);
+</script>
+
+<script src="image-loader.js"></script>
+</body>
+</html>

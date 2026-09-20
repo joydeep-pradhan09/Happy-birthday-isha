@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Little Things I Notice</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --cream: #fbf7f3;
+    --paper: #fffdfb;
+    --rose: #b78383;
+    --rose-dark: #8f6265;
+    --ink: #3d3434;
+    --muted: #8d7d7d;
+    --gold: #b99a70;
+    --line: rgba(100, 75, 75, .14);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(183, 131, 131, .13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(185, 154, 112, .12),
+            transparent 30%
+        ),
+        var(--cream);
+
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Soft paper texture */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    z-index: 20;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Cursor glow */
+
+.cursor-glow {
+    position: fixed;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background: rgba(183, 131, 131, .08);
+    filter: blur(60px);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+/* Main page */
+
+.page {
+    position: relative;
+    z-index: 1;
+
+    width: min(1050px, 92%);
+    margin: auto;
+
+    padding: 30px 0 80px;
+}
+
+/* Back link */
+
+.back {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    letter-spacing: .15em;
+
+    margin-bottom: 70px;
+
+    transition: .3s ease;
+}
+
+.back:hover {
+    color: var(--rose-dark);
+    transform: translateX(-3px);
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: .3em;
+    color: var(--rose-dark);
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(60px, 10vw, 110px);
+
+    font-weight: 500;
+
+    line-height: .85;
+}
+
+.intro {
+    max-width: 570px;
+
+    margin: 30px auto 0;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    color: var(--muted);
+}
+
+/* Image sections */
+
+.pair {
+    margin-bottom: 78px;
+}
+
+/* Two images */
+
+.pair-images {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+/* Image card */
+
+figure {
+    margin: 0;
+
+    background: var(--paper);
+
+    padding: 10px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 60px rgba(70, 45, 45, .07);
+
+    overflow: hidden;
+}
+
+/* Images */
+
+figure img {
+    width: 100%;
+
+    height: 430px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 17px;
+
+    transition:
+        transform .7s ease,
+        filter .7s ease;
+}
+
+figure:hover img {
+    transform: scale(1.035);
+    filter: brightness(1.03);
+}
+
+/* Captions */
+
+figcaption {
+    padding: 14px 5px 5px;
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+    color: var(--muted);
+}
+
+/* Text underneath */
+
+.pair-text {
+    text-align: center;
+
+    padding: 25px 20px 0;
+}
+
+.pair-text h2 {
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    color: var(--rose-dark);
+}
+
+.pair-text p {
+    max-width: 540px;
+
+    margin: 10px auto 0;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+    color: var(--muted);
+}
+
+/* Divider */
+
+.pair + .pair {
+    position: relative;
+}
+
+/* Navigation */
+
+.page-nav {
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top: 1px solid var(--line);
+
+    padding-top: 25px;
+
+    margin-top: 30px;
+}
+
+.page-nav a {
+    text-decoration: none;
+
+    font-size: 11px;
+
+    color: var(--rose-dark);
+
+    letter-spacing: .12em;
+
+    transition: .3s ease;
+}
+
+.page-nav a:hover {
+    letter-spacing: .18em;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+    color: var(--muted);
+
+    padding: 25px 20px 40px;
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+
+    .page {
+        width: 90%;
+
+        padding-top: 22px;
+    }
+
+    .back {
+        margin-bottom: 55px;
+    }
+
+    .hero {
+        margin-bottom: 60px;
+    }
+
+    h1 {
+        font-size: 65px;
+        line-height: .88;
+    }
+
+    .intro {
+        font-size: 12px;
+
+        line-height: 1.8;
+
+        padding: 0 10px;
+    }
+
+    .pair {
+        margin-bottom: 65px;
+    }
+
+    .pair-images {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    figure img {
+        height: 390px;
+    }
+
+    .pair-text {
+        padding-top: 22px;
+    }
+
+    .pair-text h2 {
+        font-size: 34px;
+    }
+
+    .pair-text p {
+        font-size: 11px;
+    }
+
+    .page-nav {
+        margin-top: 10px;
+    }
+}
+
+/* Very small phones */
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 57px;
+    }
+
+    figure img {
+        height: 350px;
+    }
+
+    .pair-text h2 {
+        font-size: 31px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- Cursor glow -->
+
+<div class="cursor-glow" id="glow"></div>
+
+
+<main class="page">
+
+    <!-- Back -->
+
+    <a href="index.html" class="back">
+        ← BACK HOME
+    </a>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="eyebrow">
+            PAGE 01 · THE DETAILS
+        </div>
+
+        <h1>
+            The Little<br>
+            Things I Notice
+        </h1>
+
+        <p class="intro">
+            Not everything memorable is loud.
+            Sometimes it is a glance, a little detail,
+            a familiar style, or something so small
+            you almost miss it.
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         EYES
+    ========================== -->
+
+    <section class="pair">
+
+        <div class="pair-images">
+
+            <figure>
+
+                <img
+                    src="images/eye.jpeg"
+                    alt="Close-up photograph showing expressive eyes"
+                >
+
+                <figcaption>
+                    01A · EYES
+                </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+                <img
+                    src="images/eye2.jpeg"
+                    alt="Close-up portrait detail focused on the eyes"
+                >
+
+                <figcaption>
+                    01B · EYES
+                </figcaption>
+
+            </figure>
+
+        </div>
+
+
+        <div class="pair-text">
+
+            <h2>
+                The little details in a look.
+            </h2>
+
+            <p>
+                Some expressions do not need an explanation.
+                They simply become part of the memory —
+                little moments that stay even after the picture is gone.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HAIR + SUNSET MEMORY
+    ========================== -->
+
+    <section class="pair">
+
+        <div class="pair-images">
+
+            <figure>
+
+                <img
+                    src="images/Hair.jpeg"
+                    alt="A beautiful moment showing her hair"
+                >
+
+                <figcaption>
+                    02A · HER HAIR
+                </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+                <img
+                    src="images/sunset-street.jpeg"
+                    alt="A quiet evening memory"
+                >
+
+                <figcaption>
+                    02B · AN EVENING MEMORY
+                </figcaption>
+
+            </figure>
+
+        </div>
+
+
+        <div class="pair-text">
+
+            <h2>
+                The little things that stay with me.
+            </h2>
+
+            <p>
+                The way your hair falls, the way the evening
+                light finds you, and those random little moments
+                that somehow become beautiful memories.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         NAILS
+    ========================== -->
+
+    <section class="pair">
+
+        <div class="pair-images">
+
+            <figure>
+
+                <img
+                    src="images/Nails1.jpeg"
+                    alt="Close-up photograph of detailed manicure"
+                >
+
+                <figcaption>
+                    03A · NAILS
+                </figcaption>
+
+            </figure>
+
+
+            <figure>
+
+                <img
+                    src="images/Nails2.jpeg"
+                    alt="Close-up photograph showing another nail design"
+                >
+
+                <figcaption>
+                    03B · NAILS
+                </figcaption>
+
+            </figure>
+
+        </div>
+
+
+        <div class="pair-text">
+
+            <h2>
+                Small details, somehow unforgettable.
+            </h2>
+
+            <p>
+                The kind of little things that may seem ordinary,
+                but somehow become part of what makes someone
+                recognisable in your memory.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE NAVIGATION
+    ========================== -->
+
+    <nav class="page-nav">
+
+        <a href="index.html">
+            ← PREVIOUS
+        </a>
+
+        <a href="things-remind-me.html">
+            NEXT →
+        </a>
+
+    </nav>
+
+</main>
+
+
+<footer>
+    PAGE 01 · MADE FOR ISHA
+</footer>
+
+
+
+<script>
+
+/* =========================
+   Cursor glow
+========================= */
+
+const glow = document.getElementById("glow");
+
+document.addEventListener("mousemove", function(event) {
+
+    glow.style.left = event.clientX + "px";
+    glow.style.top = event.clientY + "px";
+
+});
+
+</script>
+
+
+</body>
+</html>

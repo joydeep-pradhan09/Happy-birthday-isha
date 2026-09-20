@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>One Last Surprise</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--cream:#fbf7f3;
+--paper:#fffdfb;
+--rose:#b78383;
+--rose-dark:#8f6265;
+--ink:#3d3434;
+--muted:#8d7d7d;
+--gold:#b99a70;
+--line:rgba(100,75,75,.14);
+}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:
+radial-gradient(circle at 20% 15%,rgba(183,131,131,.15),transparent 28%),
+radial-gradient(circle at 80% 80%,rgba(185,154,112,.14),transparent 30%),
+var(--cream);
+font-family:"DM Sans",sans-serif;
+color:var(--ink);
+padding:30px;
+}
+
+.page{
+width:min(780px,100%);
+text-align:center;
+}
+
+.back{
+display:inline-block;
+position:absolute;
+top:30px;
+left:30px;
+color:var(--muted);
+text-decoration:none;
+font-size:11px;
+letter-spacing:.15em;
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:.3em;
+color:var(--rose-dark);
+margin-bottom:18px;
+}
+
+h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(70px,12vw,125px);
+font-weight:500;
+line-height:.8;
+}
+
+.intro{
+max-width:520px;
+margin:30px auto;
+font-size:14px;
+line-height:1.9;
+color:var(--muted);
+}
+
+.reveal-btn{
+border:1px solid rgba(143,98,101,.35);
+background:rgba(255,253,251,.75);
+color:var(--rose-dark);
+font-family:"DM Sans",sans-serif;
+font-size:11px;
+letter-spacing:.18em;
+padding:16px 27px;
+border-radius:50px;
+cursor:pointer;
+transition:.35s;
+}
+
+.reveal-btn:hover{
+background:var(--rose-dark);
+color:white;
+transform:translateY(-3px);
+}
+
+.message{
+display:none;
+margin-top:35px;
+padding:45px 35px;
+background:rgba(255,253,251,.82);
+border:1px solid var(--line);
+border-radius:30px;
+box-shadow:0 25px 80px rgba(70,45,45,.08);
+animation:appear .7s ease;
+}
+
+.message.show{
+display:block;
+}
+
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.message h2{
+font-family:"Cormorant Garamond",serif;
+font-size:48px;
+font-weight:500;
+}
+
+.message p{
+max-width:550px;
+margin:20px auto 0;
+font-size:13px;
+line-height:2;
+color:var(--muted);
+}
+
+.signature{
+font-family:"Parisienne",cursive;
+font-size:32px;
+color:var(--rose-dark);
+margin-top:25px;
+}
+
+.home{
+display:inline-block;
+margin-top:35px;
+color:var(--rose-dark);
+text-decoration:none;
+font-size:11px;
+letter-spacing:.15em;
+}
+
+@media(max-width:600px){
+body{
+padding:20px;
+}
+
+.back{
+top:20px;
+left:20px;
+}
+
+h1{
+font-size:72px;
+}
+
+.message{
+padding:35px 22px;
+}
+
+.message h2{
+font-size:40px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← HOME</a>
+
+<main class="page">
+
+<div class="eyebrow">PAGE 06 · THE LAST PAGE</div>
+
+<h1>One Last<br>Surprise</h1>
+
+<p class="intro">
+You made it all the way here.
+So there is only one thing left to do.
+</p>
+
+<button class="reveal-btn" id="revealButton">
+OPEN THE LAST PAGE
+</button>
+
+<section class="message" id="message">
+
+<h2>Happy Birthday, Isha.</h2>
+
+<p>
+I hope this year gives you more reasons to laugh,
+more ordinary days that turn into great memories,
+new places to discover, and plenty of moments
+that make you stop and think,
+“okay, that was a really good day.”
+</p>
+
+<p>
+Thank you for being one of those people
+who makes ordinary parts of life more memorable.
+</p>
+
+<div class="signature">— Joy</div>
+
+</section>
+
+<a href="index.html" class="home">RETURN TO THE BEGINNING ↗</a>
+
+</main>
+
+<script>
+document.getElementById("revealButton").addEventListener("click",function(){
+
+const message=document.getElementById("message");
+
+message.classList.add("show");
+
+this.textContent="THE SURPRISE IS OPEN";
+
+this.disabled=true;
+
+});
+</script>
+
+<script src="image-loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Things That Remind Me Of You</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--cream:#fbf7f3;
+--paper:#fffdfb;
+--rose:#b78383;
+--rose-dark:#8f6265;
+--ink:#3d3434;
+--muted:#8d7d7d;
+--gold:#b99a70;
+--line:rgba(100,75,75,.14);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+background:
+radial-gradient(circle at 20% 15%,rgba(183,131,131,.14),transparent 28%),
+radial-gradient(circle at 80% 80%,rgba(185,154,112,.12),transparent 30%),
+var(--cream);
+color:var(--ink);
+font-family:"DM Sans",sans-serif;
+}
+
+.page{
+width:min(1050px,92%);
+margin:auto;
+padding:30px 0 80px;
+}
+
+.back{
+display:inline-block;
+color:var(--muted);
+text-decoration:none;
+font-size:11px;
+letter-spacing:.15em;
+margin-bottom:70px;
+}
+
+.hero{text-align:center;margin-bottom:70px}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:.3em;
+color:var(--rose-dark);
+margin-bottom:15px;
+}
+
+h1{
+font-family:"Cormorant Garamond",serif;
+font-size:clamp(60px,10vw,110px);
+font-weight:500;
+line-height:.82;
+}
+
+.hero p{
+max-width:570px;
+margin:28px auto;
+color:var(--muted);
+font-size:14px;
+line-height:1.9;
+}
+
+.memory-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.memory{
+background:rgba(255,253,251,.75);
+border:1px solid var(--line);
+border-radius:25px;
+padding:10px;
+box-shadow:0 20px 60px rgba(70,45,45,.06);
+transition:.4s;
+}
+
+.memory:hover{
+transform:translateY(-7px);
+}
+
+.memory img{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:18px;
+display:block;
+}
+
+.memory-info{
+padding:20px 10px 15px;
+}
+
+.memory-info span{
+font-size:9px;
+letter-spacing:.22em;
+color:var(--gold);
+}
+
+.memory-info h2{
+font-family:"Cormorant Garamond",serif;
+font-size:31px;
+font-weight:500;
+margin:8px 0;
+}
+
+.memory-info p{
+font-size:12px;
+line-height:1.7;
+color:var(--muted);
+}
+
+.page-nav{
+display:flex;
+justify-content:space-between;
+border-top:1px solid var(--line);
+padding-top:25px;
+margin-top:70px;
+}
+
+.page-nav a{
+text-decoration:none;
+color:var(--rose-dark);
+font-size:11px;
+letter-spacing:.12em;
+}
+
+footer{
+text-align:center;
+padding:30px;
+font-size:9px;
+letter-spacing:.2em;
+color:var(--muted);
+}
+
+@media(max-width:800px){
+.memory-grid{
+grid-template-columns:1fr;
+max-width:600px;
+margin:auto;
+}
+
+.memory img{
+height:480px;
+}
+}
+
+@media(max-width:500px){
+h1{font-size:65px}
+.memory img{height:390px}
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<a href="index.html" class="back">← BACK HOME</a>
+
+<header class="hero">
+<div class="eyebrow">PAGE 04 · LITTLE REMINDERS</div>
+
+<h1>Things That<br>Remind Me Of You</h1>
+
+<p>
+Sometimes it is not a person that brings back a memory.
+It is a colour, a place, a photograph,
+a flower or some tiny detail that suddenly feels familiar.
+</p>
+</header>
+
+
+<section class="memory-grid">
+
+<article class="memory">
+
+<img src="images/placeholder.svg" data-image="nails-flower"
+alt="Hand holding a yellow flower">
+
+<div class="memory-info">
+<span>01 · YELLOW</span>
+<h2>Small bright things.</h2>
+<p>
+The kind of little detail that makes an ordinary photograph
+feel unexpectedly cheerful.
+</p>
+</div>
+
+</article>
+
+
+<article class="memory">
+
+<img src="images/placeholder.svg" data-image="green-outfit"
+alt="Photograph featuring a green outfit">
+
+<div class="memory-info">
+<span>02 · GREEN</span>
+<h2>Quiet colours.</h2>
+<p>
+Some colours simply have a certain feeling attached to them.
+This is one of those.
+</p>
+</div>
+
+</article>
+
+
+<article class="memory">
+
+<img src="images/placeholder.svg" data-image="white-outfit"
+alt="Photograph featuring a white outfit">
+
+<div class="memory-info">
+<span>03 · WHITE</span>
+<h2>Simple moments.</h2>
+<p>
+Clean, calm and uncomplicated —
+sometimes the simplest details stay the longest.
+</p>
+</div>
+
+</article>
+
+</section>
+
+
+<nav class="page-nav">
+<a href="birthday-story.html">← PREVIOUS</a>
+<a href="just-for-you.html">NEXT →</a>
+</nav>
+
+</main>
+
+<footer>PAGE 04 · MADE FOR ISHA</footer>
+
+<script src="image-fix.js"></script>
+<script src="image-loader.js"></script>
+</body>
+</html>
